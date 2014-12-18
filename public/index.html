@@ -1,13 +1,25 @@
 <html>
 <head>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.12.1/react.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.12.1/JSXTransformer.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="main.min.css">
 </head>
 <body>
   <div id="content">
      
   </div>
+  <script>
+    var WebFontConfig = {
+      google: { families: [ 'Roboto:400,300,500:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
   <script src="app.js"></script>
 </body>
 </html>

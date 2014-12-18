@@ -1,19 +1,21 @@
 LESS_FILES := $(wildcard src/less/*.less)
+BIN:= ./node_modules/.bin
+all: dist/app.min.js dist/main.min.css
 
-all: dist/app.min.js dist/main.css
+build/main.css: $(LESS_FILES)
+	$(BIN)/lessc src/less/main.less $@
 
-dist/main.css: $(LESS_FILES)
-	./node_modules/.bin/lessc src/less/main.less $@
-
+dist/main.min.css: build/main.css
+	$(BIN)/uglifycss $^ > $@
 
 build/app.js: src/app.jsx
-	./node_modules/.bin/browserify -o $@ -t [ reactify --es6 ] $^
+	$(BIN)/browserify -o $@ -t [ reactify --es6 ] $^
 
 dist/app.min.js: build/app.js
-	./node_modules/.bin/uglifyjs $^ -o $@ --source-map $@.map -c -m
+	$(BIN)/uglifyjs $^ -o $@ --source-map $@.map -c -m
 
-clean: dist/app.min.js build/app.js $(LESS_FILES)
-	rm $^
+clean: 
+	rm -f dist/app.min.js build/app.js build/main.css dist/main.min.css dist/app.min.js.map
 
 test:
 	node_modules/.bin/jest
