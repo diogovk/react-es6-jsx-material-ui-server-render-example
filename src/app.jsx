@@ -1,20 +1,19 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React = require('react'),
+    injectTapEventPlugin = require("react-tap-event-plugin"),
+    Main = require('./components/main.jsx');
 
-var CommentBox = React.createClass({
-  render() {
-    var a = [1,2,3];
-    var b = a.map( (x) => x+1);
-    return (
-      <div className="commentBox">
-        Hello, world! I am a CommentBox. { b }. Sucka
-      </div>
-    );
-  }
-});
-React.render(
-  <CommentBox />,
-  document.getElementById('content')
-);
+
+
+if (typeof window !== 'undefined') {
+    window.React = React;
+
+    injectTapEventPlugin();
+    React.render(
+            <Main />,
+            document.getElementById('content')
+            );
+}
+module.exports=Main;
 

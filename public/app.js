@@ -1,1 +1,1 @@
-app.min.js
+../build/app.js

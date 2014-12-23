@@ -1,12 +1,22 @@
-<html>
+<!doctype html>
+<html class="no-js" lang="">
+
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Material UI Example</title>
+  <meta name="description" content="Google's material design UI components built with React.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="main.min.css">
 </head>
+
 <body>
-  <div id="content">
-     
-  </div>
-  <script>
+    <div id="content">
+        {{{ server_rendered }}}
+
+    </div>
+
+    <script>
     var WebFontConfig = {
       google: { families: [ 'Roboto:400,300,500:latin' ] }
     };
@@ -22,4 +32,5 @@
   </script>
   <script src="app.js"></script>
 </body>
+
 </html>
